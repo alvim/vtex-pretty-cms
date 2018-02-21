@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "VTEX Pretty CMS",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "An alternative front-end to VTEX CMS.",
+    "description": "The description of the application"
+  }
+}
