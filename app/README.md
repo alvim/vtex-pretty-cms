@@ -6,22 +6,24 @@
 * Classes
   * [Popup](#class-popup)
   * [CMS](#class-cms)
+    * [ThemesManager](#package-themesmanager)
     * [TemplatesManager](#pencil-templatesmanager)
     * [CustomElementsManager](#nutandbolt-customelementsmanager)
     * [URLBuilder](#globewithmeridians-urlbuilder)
     * [FilesManager](#filefolder-filesmanager)
     * [ClustersManager](#grapes-clustersmanager)
     * [SitesManager](#earthamericas-sitesmanager)
+  * [SiteUtils](#class-siteutils)
 
 -------------------
 ## Class: Popup
 Identifies currently available actions based on current route and specific conditions and shows these.
 
-Method | Descritpion
----------|----------
-pushAction(Action) | add Action to actions list
-getState() | return State
-getAvailableActions() | return available [Actions] based on current state
+Method | Descritpion | Version
+---------|-----------|--------
+pushAction(Action) | add Action to actions list | x.x.x
+getState() | return State | x.x.x
+getAvailableActions() | return available [Actions] based on current state | x.x.x
 
 ```javascript
 State = {
@@ -44,6 +46,7 @@ Action = {
 
 Class | Description
 ------|------------
+ThemesManager | Manages Themes (every classes below together)
 TemplatesManager | Manages Templates, SubTemplates and Shelves
 CustomElementsManger | Manages CustomElements
 URLBuilder | Manages URL's
@@ -51,41 +54,49 @@ FilesManager | Manages Files
 ClustersManager | Manages Collections
 SitesManager | Manages Sites and Channels
 
+#### :package: ThemesManager
+Method | Description | Version
+-------|-------------|----------
+TODO | ... | x.x.x
+
 #### :pencil: TemplatesManager
-Method | Description
--------|------------
-getAllTemplates() | return [Template]
-getAllSubTemplates() | return [SubTemplate]
-getAllShelves() | return [Shelf]
-getTemplate(templateId) | return Template
-getTemplate(subTemplateId) | return SubTemplate
-getTemplate(shelfId) | return Shelf
-saveTemplate(templateName, templateId, content) | return Promise
-saveSubTemplate(subTemplateName, templateId, content) | return Promise
-saveShelf(shelfName, shelfId, content, className) | return Promise
-static validateTemplate(Template|SubTemplate|Shelf) | return Boolean based on HTML validation
+Method | Description | Version
+-------|-------------|--------------------
+getAllTemplates() | return [Template] | x.x.x
+getAllSubTemplates() | return [SubTemplate] | x.x.x
+getAllShelves() | return [Shelf] | x.x.x
+getTemplate(templateId) | return Template | x.x.x
+getTemplate(subTemplateId) | return SubTemplate | x.x.x
+getTemplate(shelfId) | return Shelf | x.x.x
+saveTemplate(templateName, templateId, content) | return Promise | x.x.x
+saveSubTemplate(subTemplateName, templateId, content) | return Promise | x.x.x
+saveShelf(shelfName, shelfId, content, className) | return Promise | x.x.x
+static validateTemplate(Template\|SubTemplate\|Shelf) | return (Boolean\|String) based on HTML validation | x.x.x
 
 #### :nut_and_bolt: CustomElementsManager
-Method | Description
--------|------------
-TODO | ...
+Method | Description | Version
+-------|-------------|--------
+TODO | ... | x.x.x
 
 #### :globe_with_meridians: URLBuilder
-Method | Description
--------|------------
-TODO | ...
+Method | Description | Version
+-------|-------------|--------
+TODO | ... | x.x.x
 
 #### :file_folder: FilesManager
-Method | Description
--------|------------
-TODO | ...
+Method | Description | Version
+-------|-------------|--------
+TODO | ... | x.x.x
 
 #### :grapes: ClustersManager
-Method | Description
--------|------------
-TODO | ...
+Method | Description | Version
+-------|-------------|--------
+TODO | ... | x.x.x
 
 #### :earth_americas: SitesManager
-Method | Description
--------|------------
-TODO | ...
+Method | Description | Version
+-------|-------------|--------
+TODO | ... | x.x.x
+
+---------------------
+## Class: SiteUtils
