@@ -1,8 +1,20 @@
-# API Docs
--------------------
+# Docs
 
-Class Popup
---------------------
+
+## Summary
+
+* Classes
+  * [Popup](#class-popup)
+  * [CMS](#class-cms)
+    * [TemplatesManager](#pencil-templatesmanager)
+    * [CustomElementsManager](#nutandbolt-customelementsmanager)
+    * [URLBuilder](#globewithmeridians-urlbuilder)
+    * [FilesManager](#filefolder-filesmanager)
+    * [ClustersManager](#grapes-clustersmanager)
+    * [SitesManager](#earthamericas-sitesmanager)
+
+-------------------
+## Class: Popup
 Identifies currently available actions based on current route and specific conditions and shows these.
 
 Method | Descritpion
@@ -28,8 +40,7 @@ Action = {
 ```
 -------------------
 
-Class CMS
--------------------
+## Class: CMS
 
 Class | Description
 ------|------------
@@ -43,7 +54,16 @@ SitesManager | Manages Sites and Channels
 #### :pencil: TemplatesManager
 Method | Description
 -------|------------
-TODO | ...
+getAllTemplates() | return [Template]
+getAllSubTemplates() | return [SubTemplate]
+getAllShelves() | return [Shelf]
+getTemplate(templateId) | return Template
+getTemplate(subTemplateId) | return SubTemplate
+getTemplate(shelfId) | return Shelf
+saveTemplate(templateName, templateId, content) | return Promise
+saveSubTemplate(subTemplateName, templateId, content) | return Promise
+saveShelf(shelfName, shelfId, content, className) | return Promise
+static validateTemplate(Template|SubTemplate|Shelf) | return Boolean based on HTML validation
 
 #### :nut_and_bolt: CustomElementsManager
 Method | Description
