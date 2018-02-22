@@ -1,3 +1,10 @@
 'use strict';
 
-console.log('\'Allo \'Allo! Content script');
+(function(){
+  const { pathname } = window.location
+  // if (pathname == '/admin/a') {
+  //   $('body').html('<p>Substituindo legal!</p>')
+
+
+  // }
+})();
