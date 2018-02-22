@@ -17,7 +17,7 @@
 
 -------------------
 ## Class: Popup
-Identifies currently available actions based on current route and specific conditions and shows these.
+Identifies currently available actions based on current route and specific conditions and enable them.
 
 Method | Descritpion | Version
 ---------|-----------|--------
@@ -43,6 +43,7 @@ Action = {
 -------------------
 
 ## Class: CMS
+Several functionalities to enhance VTEX CMS frontend.
 
 Class | Description
 ------|------------
@@ -100,3 +101,8 @@ TODO | ... | x.x.x
 
 ---------------------
 ## Class: SiteUtils
+On site functionalities to boost admin experience.
+
+Method | Description | Version
+-------|-------------|--------
+goToCurrentProduct | Navigate to current product admin page | x.x.x
