@@ -19,11 +19,11 @@
 ## Class: Popup
 Identifies currently available actions based on current route and specific conditions and enable them.
 
-Method | Descritpion | Version
+Method | Description | Version
 ---------|-----------|--------
-pushAction(Action) | add Action to actions list | x.x.x
-getState() | return State | x.x.x
-getAvailableActions() | return available [Actions] based on current state | x.x.x
+pushAction(Action) | add Action to actions list | 0.1.0
+getState() | return State | 0.1.0
+getAvailableActions() | return available [Action] based on current state | 0.1.0
 
 ```javascript
 State = {
@@ -63,16 +63,16 @@ TODO | ... | x.x.x
 #### :pencil: TemplatesManager
 Method | Description | Version
 -------|-------------|--------------------
-getAllTemplates() | return [Template] | x.x.x
-getAllSubTemplates() | return [SubTemplate] | x.x.x
-getAllShelves() | return [Shelf] | x.x.x
-getTemplate(templateId) | return Template | x.x.x
-getTemplate(subTemplateId) | return SubTemplate | x.x.x
-getTemplate(shelfId) | return Shelf | x.x.x
-saveTemplate(templateName, templateId, content) | return Promise | x.x.x
-saveSubTemplate(subTemplateName, templateId, content) | return Promise | x.x.x
-saveShelf(shelfName, shelfId, content, className) | return Promise | x.x.x
-static validateTemplate(Template\|SubTemplate\|Shelf) | return (Boolean\|String) based on HTML validation | x.x.x
+getAllTemplates() | return [Template] | 0.1.0
+getAllSubTemplates() | return [SubTemplate] | 0.1.0
+getAllShelves() | return [Shelf] | 0.1.0
+getTemplate(templateId) | return Template | 0.1.0
+getTemplate(subTemplateId) | return SubTemplate | 0.1.0
+getTemplate(shelfId) | return Shelf | 0.1.0
+saveTemplate(templateName, templateId, content) | return Promise | 0.1.0
+saveSubTemplate(subTemplateName, templateId, content) | return Promise | 0.1.0
+saveShelf(shelfName, shelfId, content, className) | return Promise | 0.1.0
+static validateTemplate(Template\|SubTemplate\|Shelf) | return (Boolean\|String) based on HTML validation | 0.2.0
 
 #### :nut_and_bolt: CustomElementsManager
 Method | Description | Version
@@ -105,4 +105,4 @@ On site functionalities to boost admin experience.
 
 Method | Description | Version
 -------|-------------|--------
-goToCurrentProduct | Navigate to current product admin page | x.x.x
+goToCurrentProduct() | Navigate to current product admin page | 0.2.0
