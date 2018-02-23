@@ -22,8 +22,9 @@ Identifies currently available actions based on current route and specific condi
 Method | Descritpion | Version
 ---------|-----------|--------
 pushAction(Action) | add Action to actions list | x.x.x
-getState() | return State | x.x.x
-getAvailableActions() | return available [Actions] based on current state | x.x.x
+getAvailableActions(State) | return available [Actions] based on current state | x.x.x
+setState(State) | Set state | x.x.x
+static parseState(Environment) | return State | x.x.x
 
 ```javascript
 State = {
