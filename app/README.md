@@ -3,6 +3,7 @@
 
 ## Summary
 
+* [Flow](#flow)
 * Classes
   * [Popup](#class-popup)
   * [CMS](#class-cms)
@@ -15,6 +16,16 @@
     * [SitesManager](#earthamericas-sitesmanager)
   * [SiteUtils](#class-siteutils)
 
+-------------------
+## Flow
+
+```
+BP on selected tab change or updated => Request state to CS
+CS on state requested => Send state to BP
+BP on state received => Send state to PP
+PP on state received => PP set state
+PP on state updated => PP update view
+```
 -------------------
 ## Class: Popup
 Identifies currently available actions based on current route and specific conditions and enable them.
