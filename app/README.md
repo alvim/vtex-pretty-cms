@@ -3,6 +3,7 @@
 
 ## Summary
 
+* [Flow](#flow)
 * Classes
   * [Popup](#class-popup)
   * [CMS](#class-cms)
@@ -16,14 +17,26 @@
   * [SiteUtils](#class-siteutils)
 
 -------------------
+## Flow
+
+```
+BP on selected tab change or updated => Request state to CS
+CS on state requested => Send state to BP
+BP on state received => Send state to PP
+PP on state received => PP set state
+PP on state updated => PP update view
+```
+-------------------
 ## Class: Popup
 Identifies currently available actions based on current route and specific conditions and enable them.
 
 Method | Description | Version
 ---------|-----------|--------
 pushAction(Action) | add Action to actions list | 0.1.0
-getState() | return State | 0.1.0
+setState(State) | Set state | 0.1.0
+getState() | Return state | 0.1.0
 getAvailableActions() | return available [Action] based on current state | 0.1.0
+static parseState() | return State | 0.1.0
 
 ```javascript
 State = {
