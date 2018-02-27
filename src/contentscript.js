@@ -1,13 +1,19 @@
 'use strict';
 
-(function(){
-  const getState = () => ({
-    abc: 123,
-    def: 'hey hey hey'
-  })
-  // Every Action should be in the content script
-  // The popup should show just the available actions
-  // When an available action is selected in the popup
-  // a message should me sent to the content script.
-  chrome.runtime.sendMessage(getState(), res => console.log('Response: ', res ? res.ghi : ''))
-})();
+import * as actions from './actions'
+
+const getState = () => ({
+  currentPage: 123
+})
+
+chrome.runtime.onMessage.addListener(({ type }, sender, sendResponse) => {
+  switch(type) {
+    case 'GET_STATE':
+      const state = getState()
+      console.log('Sending state: ', state)
+      chrome.runtime.sendMessage({ type: 'STATE', state })
+      break
+    default:
+      console.log('Switch statement on default.')
+  }
+})

@@ -1,11 +1,13 @@
-'use strict';
+const requestState = tabId => chrome.tabs.sendMessage(tabId, { type: 'GET_STATE' })
 
-console.log('Hey! Welcome to Popup!');
+chrome.tabs.onUpdated.addListener(tabId => requestState(tabId))
 
-chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
-  console.log('This is the current state: ', req)
-  console.log('This is the current sender: ', sender)
-  sendResponse({ ghi: 'Eta eta teta' })
+chrome.runtime.onMessage.addListener(({ type, state }, sender, sendResponse) => {
+  switch(type) {
+    case 'STATE':
+      console.log('Received state: ', state)
+      break
+    default:
+      null
+  }
 })
-
-console.log('this is the var: ', test);
