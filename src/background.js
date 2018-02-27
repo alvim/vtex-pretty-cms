@@ -27,4 +27,6 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
   sendResponse({ ghi: 'Eta eta teta' })
 })
 
+var test = 123;
+
 console.log(chrome);

@@ -4,14 +4,13 @@
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
-    "16": "images/icon-16.png",
-    "128": "images/icon-128.png"
+    "16": "public/icon-16.png",
+    "128": "public/icon-128.png"
   },
   "default_locale": "en",
   "background": {
     "persistent": false,
     "scripts": [
-      "scripts/chromereload.js",
       "scripts/background.js"
     ]
   },
@@ -37,8 +36,8 @@
   ],
   "page_action": {
     "default_icon": {
-      "19": "images/icon-19.png",
-      "38": "images/icon-38.png"
+      "19": "public/icon-19.png",
+      "38": "public/icon-38.png"
     },
     "default_title": "VTEX Pretty CMS",
     "default_popup": "popup.html"

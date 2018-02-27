@@ -3,7 +3,8 @@
 
 ## Summary
 
-* [Flow](#flow)
+* [Actions](#actions)
+* [Communication flow](#communication-flow)
 * Classes
   * [Popup](#class-popup)
   * [CMS](#class-cms)
@@ -16,22 +17,52 @@
     * [SitesManager](#earthamericas-sitesmanager)
   * [SiteUtils](#class-siteutils)
 
+
 -------------------
-## Flow
+## Actions
+
+Everything that can be done with this extension is done by actions. An action is divided in two parts:
+* A method which is located in content script and it's what do the action itself.
+* Metadata read by the popup.
+
+```javascript
+Action = {
+  method: function name(currentState[, actionsContainer]){
+    // Just an idea, but should I return the actionsContainer
+    // so I could create chained actions in the future?
+  },
+  name: String, // Optional if the method isn't anonymous
+  title: String,
+  description: String,
+  icon: String,
+  style: Object,
+  condition: function(currentState){ return Boolean } // return true if available in current state.
+}
+```
 
 ```
-BP on selected tab change or updated => Request state to CS
-CS on state requested => Send state to BP
-BP on state received => Send state to PP
-PP on state received => PP set state
-PP on state updated => PP update view
+// CS and PP
+
+import * from './Actions'
+```
+
+-------------------
+## Communication flow
+
+```
+PP: Popup
+CS: Content script
+
+PP on selected tab change or update => request state to CS
+CS on state requested => Send state
+PP on state received => PP set state and update view
 ```
 -------------------
 ## Class: Popup
 Identifies currently available actions based on current route and specific conditions and enable them.
 
 Method | Description | Version
----------|-----------|--------
+-------|-------------|--------
 pushAction(Action) | add Action to actions list | 0.1.0
 setState(State) | Set state | 0.1.0
 getState() | Return state | 0.1.0
@@ -42,15 +73,6 @@ static parseState() | return State | 0.1.0
 State = {
   // Store info
   // Route info for detecting when in CMS or in a product page, for example.
-}
-
-Action = {
-  text: String,
-  description: String,
-  callback: Function,
-  icon: String,
-  style: Object,
-  condition: function(currentState){ return Boolean } // return true if available in current state.
 }
 ```
 -------------------
