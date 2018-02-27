@@ -21,4 +21,10 @@ chrome.runtime.onSuspend.addListener(details => {
   console.log('Suspending...', details);
 })
 
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
+  console.log('This is the current state: ', req)
+  console.log('This is the current sender: ', sender)
+  sendResponse({ ghi: 'Eta eta teta' })
+})
+
 console.log(chrome);
