@@ -12,7 +12,7 @@ module.exports = {
     new CopyWebpackPlugin([ { from: path.resolve(__dirname, 'src/public'), to: path.resolve(__dirname, 'app/public') } ])
   ],
   entry: {
-    popup: path.resolve(__dirname, 'src/popup.js'),
+    popup: path.resolve(__dirname, 'src/popup_index.js'),
     contentscript: path.resolve(__dirname, 'src/contentscript.js'),
     background: path.resolve(__dirname, 'src/background.js')
   },

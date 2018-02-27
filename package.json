@@ -6,7 +6,8 @@
   },
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "watch": "watch 'npm run build' src"
+    "watch": "watch 'npm run build' src",
+    "start": "watch 'npm run build' src"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
