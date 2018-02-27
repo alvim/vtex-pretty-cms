@@ -5,6 +5,7 @@ A Chrome Extension to enhance VTEX CMS front-end.
 ## Summary
 
 * [Actions](#actions)
+* [State](#state)
 * [Communication flow](#communication-flow)
 * Classes
   * [Popup](#class-popup)
@@ -48,6 +49,26 @@ import * from './Actions'
 ```
 
 -------------------
+## State
+
+The state is dinamically composed object that reflect the current page and environment conditions. It should contain built-in properties (setted at the instance time) and assigned custom properties.
+
+You can assign new properties to state through actions. This happens because an action will often depend on specific state properties. So it's action's work to pass to the state a way to detect these conditions.
+
+For example, an action called `goToCurrentProduct` that detects if you're in a product page and gives you a link to go to that product's admin page. The condition is to be in a product page.
+
+What's the best way to do this?
+
+```javascript
+State = {
+  // VTEX environment info
+  // Store metadata
+  // Routing info
+  // etc...
+}
+```
+
+-------------------
 ## Communication flow
 
 ```
@@ -70,12 +91,6 @@ getState() | Return state | 0.1.0
 getAvailableActions() | return available [Action] based on current state | 0.1.0
 static parseState() | return State | 0.1.0
 
-```javascript
-State = {
-  // Store info
-  // Route info for detecting when in CMS or in a product page, for example.
-}
-```
 -------------------
 
 ## Class: CMS
