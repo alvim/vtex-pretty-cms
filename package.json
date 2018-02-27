@@ -5,7 +5,8 @@
     "node": ">=0.8.0"
   },
   "scripts": {
-    "build": "webpack --config ./webpack.config.js"
+    "build": "webpack --config ./webpack.config.js",
+    "watch": "watch 'npm run build' src"
   },
   "devDependencies": {
     "babel-core": "^6.7.2",
@@ -16,6 +17,7 @@
     "file-loader": "^1.1.10",
     "imagemin-webpack-plugin": "^2.0.0",
     "svg-inline-loader": "^0.8.0",
+    "watch": "^1.0.2",
     "webpack": "^3.5.6"
   }
 }
