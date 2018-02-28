@@ -1,6 +1,6 @@
 'use strict';
 
-import { getStateFromDOM as getState } from './Popup'
+import ActionsContainer from './ActionsContainer'
 import * as actions from './Actions'
 
 chrome.runtime.onMessage.addListener(({ type }, sender, sendResponse) => {

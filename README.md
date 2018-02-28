@@ -4,69 +4,20 @@ A Chrome Extension to enhance VTEX CMS front-end.
 
 ## Summary
 
-* [Actions](#actions)
-* [State](#state)
 * [Communication flow](#communication-flow)
-* Classes
-  * [Popup](#class-popup)
-  * [CMS](#class-cms)
-    * [ThemesManager](#package-themesmanager)
-    * [TemplatesManager](#pencil-templatesmanager)
-    * [CustomElementsManager](#nutandbolt-customelementsmanager)
-    * [URLBuilder](#globewithmeridians-urlbuilder)
-    * [FilesManager](#filefolder-filesmanager)
-    * [ClustersManager](#grapes-clustersmanager)
-    * [SitesManager](#earthamericas-sitesmanager)
-  * [SiteUtils](#class-siteutils)
-
-
--------------------
-## Actions
-
-Everything that can be done with this extension is done by actions. An action is divided in two parts:
-* A method which is located in content script and it's what do the action itself.
-* Metadata read by the popup.
-
-```javascript
-Action = {
-  method: function name(currentState[, actionsContainer]){
-    // Just an idea, but should I return the actionsContainer
-    // so I could create chained actions in the future?
-  },
-  name: String, // Optional if the method isn't anonymous
-  title: String,
-  description: String,
-  icon: String,
-  style: Object,
-  condition: function(currentState){ return Boolean } // return true if available in current state.
-}
-```
-
-```
-// CS and PP
-
-import * from './Actions'
-```
-
--------------------
-## State
-
-The state is dinamically composed object that reflect the current page and environment conditions. It should contain built-in properties (setted at the instance time) and assigned custom properties.
-
-You can assign new properties to state through actions. This happens because an action will often depend on specific state properties. So it's action's work to pass to the state a way to detect these conditions.
-
-For example, an action called `goToCurrentProduct` that detects if you're in a product page and gives you a link to go to that product's admin page. The condition is to be in a product page.
-
-What's the best way to do this?
-
-```javascript
-State = {
-  // VTEX environment info
-  // Store metadata
-  // Routing info
-  // etc...
-}
-```
+* [Actions](#class-action)
+* [ActionView](#class-actionview)
+* [ActionsContainer](#class-actioncontainer)
+* [Popup](#class-popup)
+* [CMS](#class-cms)
+  * [ThemesManager](#package-themesmanager)
+  * [TemplatesManager](#pencil-templatesmanager)
+  * [CustomElementsManager](#nutandbolt-customelementsmanager)
+  * [URLBuilder](#globewithmeridians-urlbuilder)
+  * [FilesManager](#filefolder-filesmanager)
+  * [ClustersManager](#grapes-clustersmanager)
+  * [SitesManager](#earthamericas-sitesmanager)
+* [SiteUtils](#class-siteutils)
 
 -------------------
 ## Communication flow
@@ -75,18 +26,48 @@ State = {
 PP: Popup
 CS: Content script
 
-PP on selected tab change or update => request state to CS
-CS on state requested => Send state
-PP on state received => PP set state and update view
+PP on selected tab change or update => request views to CS
+CS on views requested => Send views
+PP on views received => PP update view
+
+PP dispatches action => CS execute action
+// { type: 'RUN_ACTION', name: actionName, args: [] }
 ```
+
 -------------------
-## Class: Popup
-Identifies currently available actions based on current route and specific conditions and enable them.
+## Class: Action
+
+Everything that can be done with this extension is done by actions.
 
 Method | Description | Version
 -------|-------------|--------
-pushAction(Action) | add Action to actions list | 0.1.0
-setState(State) | Set state | 0.1.0
+method name() | The action itself. It's execution context it's the ActionsContainer. It will have access to the page's DOM, since it runs on the document. Although it does not have access to the same world of user defined variables. It's lives in an [_isolated world_](href="https://developer.chrome.com/extensions/content_scripts#execution-environment", target="_blank"). | 0.1.0
+getView() | return ActionView \|\| false if unavailable | 0.1.0
+
+
+------------------------
+## Class: ActionView
+
+The view displayed in the Popup.
+
+------------------------
+## Class: ActionsContainer
+
+Contains and manages every action.
+
+Method | Description | Version
+-------|-------------|--------
+constructor(actions: Array) | Init ActionsContainer | 0.1.0
+dispatch(actionName[, args]) | Executes an action | 0.1.0
+
+
+-------------------
+
+## Class: Popup
+Receives actions views, displays them and dispatch actions through messages to the content script.
+
+Method | Description | Version
+-------|-------------|--------
 getState() | Return state | 0.1.0
 getAvailableActions() | return available [Action] based on current state | 0.1.0
 static parseState() | return State | 0.1.0
