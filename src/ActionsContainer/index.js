@@ -1,9 +1,9 @@
 export const dispatch = function(actionName, args) {
-  return this[actionsName].apply(this, args)
+  return this[actionName].apply(this, args)
 }
 
 const ActionsContainer = function(actions){
-  for (const action in actions) this[action.name] = action
+  for (const action of actions) this[action.name] = action
 
   this.dispatch = dispatch
 }

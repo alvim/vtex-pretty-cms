@@ -57,8 +57,8 @@ Contains and manages every action.
 
 Method | Description | Version
 -------|-------------|--------
-constructor(actions: Array) | Init ActionsContainer | 0.1.0
-dispatch(actionName[, args]) | Executes an action | 0.1.0
+constructor(actions: Array) | Init ActionsContainer | 0.1.0 :white_check_mark:
+dispatch(actionName[, args]) | Executes an action | 0.1.0 :white_check_mark:
 
 
 -------------------
