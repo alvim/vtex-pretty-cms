@@ -5,10 +5,13 @@ chrome.tabs.onUpdated.addListener(tabId => requestState(tabId))
 chrome.runtime.onMessage.addListener(({ type, views }, sender, sendResponse) => {
   switch(type) {
     case 'UPDATE_VIEW':
-      console.log('Updating view, man!!!')
       window.pp.views = views
       break
     default:
       null
   }
 })
+
+// NEXT STEP:
+// DEFAULT VIEW
+// UPDATE VIEW

@@ -68,11 +68,6 @@ getViews() | return [ActionView] | 0.1.0 :white_check_mark:
 ## Class: Popup
 Receives actions views, displays them and dispatch actions through messages to the content script.
 
-Method | Description | Version
--------|-------------|--------
-getState() | Return state | 0.1.0
-getAvailableActions() | return available [Action] based on current state | 0.1.0
-static parseState() | return State | 0.1.0
 
 -------------------
 
