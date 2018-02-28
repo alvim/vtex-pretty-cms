@@ -1,11 +1,19 @@
 export const dispatch = function(actionName, args) {
-  return this[actionName].apply(this, args)
+  return this.methods[actionName].apply(this, args)
+}
+
+export const getViews = function(){
+  return this.actions.map(({ getView }) => getView())
 }
 
 const ActionsContainer = function(actions){
-  for (const action of actions) this[action.name] = action
+  this.actions = actions
+  this.methods = {}
+  for (const action of actions)
+    this.methods[action.method.name] = action.method
 
   this.dispatch = dispatch
+  this.getViews = getViews
 }
 
 export default ActionsContainer

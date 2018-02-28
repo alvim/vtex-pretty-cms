@@ -30,7 +30,7 @@ PP on selected tab change or update => request views to CS
 CS on views requested => Send views
 PP on views received => PP update view
 
-PP dispatches action => CS execute action
+PP send message (RUN_ACTION) => CS execute actionsContainer.dispatch
 // { type: 'RUN_ACTION', name: actionName, args: [] }
 ```
 
@@ -41,7 +41,7 @@ Everything that can be done with this extension is done by actions.
 
 Method | Description | Version
 -------|-------------|--------
-method name() | The action itself. It's execution context it's the ActionsContainer. It will have access to the page's DOM, since it runs on the document. Although it does not have access to the same world of user defined variables. It's lives in an [_isolated world_](href="https://developer.chrome.com/extensions/content_scripts#execution-environment", target="_blank"). | 0.1.0
+method name() | The action itself. It's execution context it's the ActionsContainer. It will have access to the page's DOM, since it runs on the document. Although it does not have access to the same world of user defined variables. It's lives in an <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment" target="_blank">_isolated world_</a>. | 0.1.0
 getView() | return ActionView \|\| false if unavailable | 0.1.0
 
 
@@ -55,10 +55,12 @@ The view displayed in the Popup.
 
 Contains and manages every action.
 
+
 Method | Description | Version
 -------|-------------|--------
 constructor(actions: Array) | Init ActionsContainer | 0.1.0 :white_check_mark:
 dispatch(actionName[, args]) | Executes an action | 0.1.0 :white_check_mark:
+getViews() | return [ActionView] | 0.1.0 :white_check_mark:
 
 
 -------------------

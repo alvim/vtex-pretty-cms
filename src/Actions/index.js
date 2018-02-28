@@ -1,3 +1,5 @@
 import helloWorld from './helloWorld'
 
-export { helloWorld }
+export default [
+  helloWorld
+]

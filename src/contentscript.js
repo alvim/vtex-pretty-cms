@@ -1,15 +1,19 @@
-'use strict';
-
 import ActionsContainer from './ActionsContainer'
-import * as actions from './Actions'
+import actions from './Actions'
 
-chrome.runtime.onMessage.addListener(({ type }, sender, sendResponse) => {
+const actionsContainer = new ActionsContainer(actions)
+
+chrome.runtime.onMessage.addListener(({ type, name, args }, sender, sendResponse) => {
   switch(type) {
-    case 'GET_STATE':
-      const state = getState()
-      chrome.runtime.sendMessage({ type: 'STATE', state })
+    case 'RUN_ACTION':
+      actionsContainer.dispatch(name, args)
       break
+
+    case 'REQUEST_AVAILABLE_ACTIONS':
+      chrome.runtime.sendMessage({ type: 'UPDATE_VIEW', views: actionsContainer.getViews() })
+      break
+
     default:
-      console.log('Switch statement on default.')
+      null
   }
 })
