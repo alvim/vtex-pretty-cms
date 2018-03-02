@@ -28,6 +28,17 @@ module.exports = {
         loader: "babel-loader"
       },
       {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ],
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader"
+      },
+      {
         test: /\.(png|jpg|gif)$/,
         use: {
           loader: 'file-loader',
