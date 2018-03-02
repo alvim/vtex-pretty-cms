@@ -68,7 +68,6 @@ getViews() | return [ActionView] | 0.1.0 :white_check_mark:
 ## Class: Popup
 Receives actions views, displays them and dispatch actions through messages to the content script.
 
-
 -------------------
 
 ## Class: CMS
