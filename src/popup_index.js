@@ -5,6 +5,3 @@ let vm = new Vue({
   el: '#actions-container',
   render: h => h(Popup)
 })
-
-
-

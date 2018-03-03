@@ -1,10 +1,9 @@
 <template>
   <div class="actions">
-    <div class="action" v-for="view in views">
-      <p>{{ view.name }}</p>
+    <button class="action" v-for="view in views" @click="dispatch(view.name)">
       <p>{{ view.title }}</p>
       <p>{{ view.description }}</p>
-    </div>
+    </button>
     <div v-if="!views">Não há ações disponíveis</div>
     <p>Lindo</p>
   </div>
@@ -15,11 +14,14 @@ export default {
   data() {
     return {
       msg: 'Eita',
-      views: null
+      views: null,
+      tabId: null
     }
   },
   created() {
+    const self = this
     chrome.tabs.query({ active: true }, ([{ id }]) => {
+      self.tabId = id
       return chrome.tabs.sendMessage(id, { type: 'REQUEST_AVAILABLE_ACTIONS' })
     })
 
@@ -32,6 +34,11 @@ export default {
           null
       }
     })
+  },
+  methods: {
+    dispatch(name) {
+      chrome.tabs.sendMessage(this.tabId, { type: 'RUN_ACTION', name })
+    }
   }
 }
 </script>
