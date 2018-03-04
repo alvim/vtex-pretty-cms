@@ -1,4 +1,4 @@
-export const method = function helloWorld() {
+export const method = function helloVtex() {
   document.body.innerHTML = 'Hello VTEX!'
 }
 
