@@ -1,12 +1,12 @@
 export const method = function helloWorld() {
-  document.body.innerHTML = 'Hello World!'
+  document.body.innerHTML = 'Hello VTEX!'
 }
 
 export const getView = () => {
   return {
-    name: 'helloWorld',
-    title: 'Hello world!',
-    description: 'Say hi to the world!'
+    name: 'helloVtex',
+    title: 'Hello VTEX!',
+    description: 'Say hi to VTEX.'
   }
 }
 
