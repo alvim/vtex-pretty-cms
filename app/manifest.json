@@ -16,16 +16,15 @@
   },
   "permissions": [
     "tabs",
-    "http://*.vtexcommercestable.com.br/*",
-    "https://*.vtexcommercestable.com.br/*",
-    "cookies",
-    "*://*.google.com/"
+    "http://*/*",
+    "https://*/*",
+    "cookies"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://*.vtexcommercestable.com.br/*",
-        "https://*.vtexcommercestable.com.br/*"
+        "http://*/*",
+        "https://*/*"
       ],
       "js": [
         "scripts/contentscript.js"
@@ -34,7 +33,7 @@
       "all_frames": false
     }
   ],
-  "page_action": {
+  "browser_action": {
     "default_icon": {
       "19": "public/icon-19.png",
       "38": "public/icon-38.png"

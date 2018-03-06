@@ -1,5 +1,6 @@
 body {
-  width: 300px;
+  width: auto;
+  min-width: 120px;
   padding: 0;
   font-family: 'Lato', sans-serif;
 }

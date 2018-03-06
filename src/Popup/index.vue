@@ -73,5 +73,6 @@ export default {
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
+  width: 300px;
 }
 </style>
