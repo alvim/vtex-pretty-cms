@@ -1,4 +1,4 @@
-import $ from 'jQuery'
+import $ from 'jquery'
 import ActionsContainer from './ActionsContainer'
 import actions from './Actions'
 
