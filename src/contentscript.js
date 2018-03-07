@@ -13,7 +13,7 @@ const isVtex = () => {
   ) return true
 }
 
-chrome.runtime.onMessage.addListener(({ type }, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(({ type }) => {
   switch(type) {
     case 'REQUEST_ACTION_STATE':
     if (isVtex()) chrome.runtime.sendMessage({ type: "SET_BADGE", actionsQuantity: views.length })
@@ -26,7 +26,7 @@ chrome.runtime.onMessage.addListener(({ type }, sender, sendResponse) => {
 })
 
 if (isVtex()) {
-  chrome.runtime.onMessage.addListener(({ type, name, args }, sender, sendResponse) => {
+  chrome.runtime.onMessage.addListener(({ type, name, args }) => {
     switch(type) {
       case 'RUN_ACTION':
       actionsContainer.dispatch(name, args)
