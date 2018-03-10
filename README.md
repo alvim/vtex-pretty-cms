@@ -34,6 +34,8 @@ PP send message (RUN_ACTION) => CS execute actionsContainer.dispatch
 // { type: 'RUN_ACTION', name: actionName, args: [] }
 ```
 
+I should probably refactor this part. The communication flow should be testable.
+
 -------------------
 ## Class: Action
 
