@@ -46,6 +46,8 @@ Method | Description | Version
 method name() | The action itself. It's execution context it's the ActionsContainer. It will have access to the page's DOM, since it runs on the document. Although it does not have access to the same world of user defined variables. It's lives in an <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment" target="_blank">_isolated world_</a>. | 0.1.0
 getView() | return ActionView \|\| false if unavailable | 0.1.0
 
+The method `getView` should probably be `getViews` and return an array of views.
+
 
 ------------------------
 ## Class: ActionView
