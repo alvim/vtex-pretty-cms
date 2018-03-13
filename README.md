@@ -35,6 +35,7 @@ PP send message (RUN_ACTION) => CS execute actionsContainer.dispatch
 ```
 
 I should probably refactor this part. The communication flow should be testable.
+Rewrite the methods so they receive `chrome` and `action` as parameters, this way I can test them better because they will be pure.
 
 -------------------
 ## Class: Action
