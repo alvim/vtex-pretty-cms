@@ -4,7 +4,7 @@
     <div v-else>
       <h2 class="title">Store name</h2>
       <div class="actions-container">
-        <button class="action" v-for="view in views" @click="dispatch(view.name)" :title="view.description">
+        <button class="action" v-for="view in views" @click="dispatch(view.name, view.args)" :title="view.description">
           {{ view.title }}
         </button>
       </div>
@@ -39,8 +39,8 @@ export default {
     })
   },
   methods: {
-    dispatch(name) {
-      chrome.tabs.sendMessage(this.tabId, { type: 'RUN_ACTION', name })
+    dispatch(name, args) {
+      chrome.tabs.sendMessage(this.tabId, { type: 'RUN_ACTION', name, args })
     }
   }
 }

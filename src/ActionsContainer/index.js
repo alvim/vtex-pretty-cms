@@ -1,9 +1,10 @@
 export const dispatch = function(actionName, args) {
+  console.log(actionName, args)
   return this.methods[actionName].apply(this, args)
 }
 
 export const getViews = function(){
-  return this.actions.map(({ getView }) => getView())
+  return this.actions.map(({ getView }) => getView()).filter(view => view)
 }
 
 const ActionsContainer = function(actions){
