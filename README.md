@@ -1,3 +1,5 @@
+:warning:THIS EXTENSION IS NO LONGER AVAILABLE:warning:
+
 # VTEX Pretty CMS
 
 A Chrome Extension to enhance VTEX CMS front-end.
